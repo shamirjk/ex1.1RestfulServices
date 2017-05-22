@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Students API</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<link href="css/style.css" rel="stylesheet">-->
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>VOD Library Web-Service API</h1>
+                <p>The web-service allows you to get movies data from JSON File</p>
+                <h2>Instructions</h2>
+                <h3>Get all Movies</h3>
+                Method: GET<br>
+                URL Example: <code><a href="./getAllMovies" target="_blank">
+                https://ex1-vodlibrary.herokuapp.com/getAllMovies</a></code><br>
+                Response: All The Movies in the Library<br>
+                <pre>[
+    {
+        name: "Ameican History X",
+        year: "1998",
+        genre: "Drama",
+        starring: [ "Edward Norton", "Edward Furlong", "Fairuza Balk"],
+        running time: "119 min",
+        country: "United States",
+        language:{
+            original: "English",
+            subtitles: ["English", "Hebrew", "French"]
+        },
+        tags: "Racism"
+    },
+...
+]           </pre><br>
+
+                <h3>Get Holiday Movies</h3>
+                Method: GET<br>
+                URL Example: <code><a href="./getHolidayMovies" target="_blank">
+                https://ex1-vodlibrary.herokuapp.com/getHolidayMovies</a></code><br>
+                Response: All The Movies That Related to Holidays
+                <pre>
+{
+    movies: [
+        {
+            name: "Passover Fever",
+            year: "1995",
+            genre: "Drama",
+            starring: [ "Gila Almagor", "Yossef Shiloach"],
+            running time: "100 min",
+            country: "Israel",
+            language:{
+                original: "Hebrew",
+                subtitles: ["English", "Hebrew"]
+            },
+            holiday: "Passover",
+            tags: ["Holiday", "Passover", "Family"]
+        },
+        .....
+    ]
+}</pre><br>
+
+                <h3>Receive all Movies that are reletad to the specific Holiday</h3>
+                Method: POST<br>
+                Required Parameters: holiday_name<br>
+                Example Possible Holidays: Passoveer, Christmas, Shavuot, Yom Kippur<br>
+                URL Example: <code><a href="#">/getMoviesByHoliday/</a></code><br>
+                Key: <code>holiday_name</code> Value (example): <code>Christmas</code><br>
+                Response: Movies That are Belonged to the Holiday<br><br>
+                <form method="POST" action="../getMoviesByHoliday/" target="_blank">
+                    <input type="text" name="holiday_name" value="Christmas" style="display: none">
+                    <input type="submit" value="Example">
+                </form>
+
+
+                <h3>Get all Movies that are reletad to the specific Holiday and Language</h3>
+                Method: GET<br>
+                Required Parameters: holiday_name, language<br>
+                Example Possible Holidays: Passoveer, Christmas, Shavuot, Yom Kippur<br>
+                Example Possible Languges: English, Hebrew<br>
+                URL Example: <code><a href="./getMoviesByHolidayAndLanguage/Passover/English" target="_blank">
+                https://ex1-vodlibrary.herokuapp.com/getMoviesByHolidayAndLanguage/Passover/English</a></code><br>
+                Response: Movies That are Belonged to the Holiday and in asked original language<br><br>
+                <pre>
+{
+    movies: [
+        {
+            name: "Exodus: Gods and Kings",
+            year: "2014",
+            genre: ["History", "Adventure"],
+            starring: [ "Christian Bale", "Joel Edgerton", "John Turturro""],
+            running time: "150 min",
+            country: "United States",
+            language:{
+                original: "English",
+                subtitles: ["English", "Hebrew", "Spanish", "Russian"]
+            },
+            holiday: "Passover",
+            tags: ["Holiday", "Passover", "Moses", "Bible"]
+        },
+    .....
+    ]
+}
+</pre><br>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
