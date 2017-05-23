@@ -17,8 +17,6 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
-    <!--<link href="css/style.css" rel="stylesheet">-->
 </head>
 
 <body>
@@ -35,7 +33,7 @@
                 Response: All The Movies in the Library<br>
                 <pre>[
     {
-        name: "Ameican History X",
+        name: "American History X",
         year: "1998",
         genre: "Drama",
         starring: [ "Edward Norton", "Edward Furlong", "Fairuza Balk"],
@@ -76,10 +74,10 @@
     ]
 }</pre><br>
 
-                <h3>Receive all Movies that are reletad to the specific Holiday</h3>
+                <h3>Receive all Movies that are related to the specific Holiday</h3>
                 Method: POST<br>
                 Required Parameters: holiday_name<br>
-                Example Possible Holidays: Passoveer, Christmas, Shavuot, Yom Kippur<br>
+                Example Possible Holidays: Passover, Christmas, Shavuot, Yom Kippur<br>
                 URL Example: <code><a href="#">/getMoviesByHoliday/</a></code><br>
                 Key: <code>holiday_name</code> Value (example): <code>Christmas</code><br>
                 Response: Movies That are Belonged to the Holiday<br><br>
@@ -89,11 +87,11 @@
                 </form>
 
 
-                <h3>Get all Movies that are reletad to the specific Holiday and Language</h3>
+                <h3>Get all Movies that are related to the specific Holiday and Language</h3>
                 Method: GET<br>
                 Required Parameters: holiday_name, language<br>
-                Example Possible Holidays: Passoveer, Christmas, Shavuot, Yom Kippur<br>
-                Example Possible Languges: English, Hebrew<br>
+                Example Possible Holidays: Passover, Christmas, Shavuot, Yom Kippur<br>
+                Example Possible Languages: English, Hebrew<br>
                 URL Example: <code><a href="./getMoviesByHolidayAndLanguage/Passover/English" target="_blank">
                 https://ex1-vodlibrary.herokuapp.com/getMoviesByHolidayAndLanguage/Passover/English</a></code><br>
                 Response: Movies That are Belonged to the Holiday and in asked original language<br><br>
