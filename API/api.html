@@ -15,8 +15,8 @@
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -24,12 +24,12 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>VOD Library Web-Service API</h1>
-                <p>The web-service allows you to get movies data from JSON File</p>
+                <p>The web-service allows you to get movies data from MongoDB Host Service (mLab)</p>
                 <h2>Instructions</h2>
                 <h3>Get all Movies</h3>
                 Method: GET<br>
                 URL Example: <code><a href="./getAllMovies" target="_blank">
-                https://ex1-vodlibrary.herokuapp.com/getAllMovies</a></code><br>
+                https://ex1-vodlibrary-with-mlab.herokuapp.com/getAllMovies</a></code><br>
                 Response: All The Movies in the Library<br>
                 <pre>[
     {
@@ -51,7 +51,7 @@
                 <h3>Get Holiday Movies</h3>
                 Method: GET<br>
                 URL Example: <code><a href="./getHolidayMovies" target="_blank">
-                https://ex1-vodlibrary.herokuapp.com/getHolidayMovies</a></code><br>
+                https://ex1-vodlibrary-with-mlab.herokuapp.com/getHolidayMovies</a></code><br>
                 Response: All The Movies That Related to Holidays
                 <pre>
 {
@@ -93,7 +93,7 @@
                 Example Possible Holidays: Passover, Christmas, Shavuot, Yom Kippur<br>
                 Example Possible Languages: English, Hebrew<br>
                 URL Example: <code><a href="./getMoviesByHolidayAndLanguage/Passover/English" target="_blank">
-                https://ex1-vodlibrary.herokuapp.com/getMoviesByHolidayAndLanguage/Passover/English</a></code><br>
+                https://ex1-vodlibrary-with-mlab.herokuapp.com/getMoviesByHolidayAndLanguage/Passover/English</a></code><br>
                 Response: Movies That are Belonged to the Holiday and in asked original language<br><br>
                 <pre>
 {
@@ -116,6 +116,14 @@
     ]
 }
 </pre><br>
+                <h3>Error Handling</h3>
+                If URL Address is incorrect you will get a friendly 404 Page.<br>
+                If There is no Movie that matches requested Parameters you will get a JSON File which will be:<br>
+                <pre>
+                    {
+                Error: "Couldn't find Movie with Requested Parameters"
+                    }
+                </pre>
             </div>
         </div>
     </div>
