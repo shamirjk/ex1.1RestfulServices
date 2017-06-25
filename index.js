@@ -7,6 +7,14 @@ const   express= require ('express'),
 
 app.use(bodyParser.json()); //parsing application/JSON
 app.use(bodyParser.urlencoded({extended: true})); //parsing application
+app.use (
+    (req,res,next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers",
+    "origin, X-requested-With, Content-Type, Accept");
+    res.set ("Content-Type", "application/json");
+    next();
+})
 
 //Index Page that shows the API
 app.get(`/`, (req, res) => {
@@ -50,7 +58,6 @@ app.post('/getMoviesByHoliday/', (req, res) => {
 
 //friendly 404 Page
 app.all('*', (req, res) => {
-    console.log(`Wrong Page address - friendly 404. Check the URL address`);
     res.status(404).send(`Got Lost? This is a friendly 404 Page`);
 });
 
